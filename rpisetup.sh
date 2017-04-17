@@ -31,6 +31,10 @@ echo
 echo Setting Time Zone...
 echo "US\Eastern" | sudo tee /etc/timezone
 
+# Enable SSH
+sudo update-rc.d ssh enable
+sudo update-rc.d ssh start
+
 # Change Pi User Password
 echo
 echo Changing PI Password

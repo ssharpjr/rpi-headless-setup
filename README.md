@@ -9,6 +9,7 @@ Raspbian will see this and enable SSH by default.
 Create a file called 'wpa_supplicant.conf' on the /boot partition with the following contents.
 
 ```code
+country=US
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
@@ -38,7 +39,6 @@ This will unsure you are fully up to date (except the kernel which shouldn't mat
 
 ### Optional: Update the Kernel
 If you know what you are doing and know why you are doing it, update the kernel, modules, and firmware as well.
-
 Install and run rpi-update
 ```shell
 sudo apt-get install rpi-update -y
