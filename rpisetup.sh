@@ -17,6 +17,9 @@ echo Running RPI Setup
 # Set Locale
 echo
 echo Setting Locale...
+sudo sed -i 's/# en_US.UTF-8/en_US.UTF-8/g' /etc/locale.gen
+sudo sed -i 's/en_GB.UTF-8/# en_GB.UTF-8/g' /etc/locale.gen
+echo LANG="en_US.UTF-8" | sudo tee /etc/default/locale
 sudo locale-gen en_US.UTF-8
 sudo update-locale
 
@@ -55,6 +58,9 @@ echo
 echo Setting AutoLogin
 sudo sed -i 's/ExecStart=-\/sbin\/agetty --noclear \%I \$TERM/ExecStart=-\/sbin\/agetty --autologin pi --noclear \%I \$TERM/g' \
 /etc/systemd/system/autologin@.service
+sudo rm -rf /etc/systemd/system/getty.target.wants/getty@tty1.service
+sudo systemctl set-default multiuser.target
+sudo ln -fs /etc/systemd/system/autologin@.service /etc/systemd/system/getty.target.wants/getty@tty1.service
 
 # Reboot
 echo
