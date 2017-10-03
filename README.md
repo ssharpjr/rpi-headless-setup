@@ -34,7 +34,7 @@ Update and upgrade all Raspbian software
 ```shell
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get autoremove -y && sudo apt-get autoclean && sync
 ```
-This will unsure you are fully up to date (except the kernel which shouldn't matter in most cases) and lean.
+This will ensure you are fully up to date (except the kernel which shouldn't matter in most cases) and lean.
 
 
 ### Optional: Update the Kernel
